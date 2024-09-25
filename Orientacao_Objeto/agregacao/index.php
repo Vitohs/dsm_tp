@@ -9,6 +9,7 @@
     $produto3 = new Produto("Caneca do São Paulo", "Maior do Brasil", 800, 50,$categoria2);
     $produto4 = new Produto("Caneca do Palmeiras", "verde", 51, 51, $categoria2);
     
+    $categoria2->setProduto($produto3);
     echo "<h1>Produto</h1>";
     echo "Nome: {$produto1->getNome()}<br>";
  
@@ -22,8 +23,11 @@
 
     echo "<br></br>";
     echo "<h2>Categoria</h2>";
-
-    echo "Descritivo: {$categoria2->getDescr()}<br>";
-
-    echo "Produto: {$categoria2->getProduto()}<br>";
+    foreach($categoria2->getProduto() as $pdtnovo)
+    {
+        echo "Nome: {$pdtnovo->getNome()}<br>";
+        echo "Descrição: {$pdtnovo->getDesc()}<br>";
+        echo "Preço: {$pdtnovo->getPreco()}<br>";
+        echo "Estoque: {$pdtnovo->getEstoque()}<br>";
+    }
 ?>
